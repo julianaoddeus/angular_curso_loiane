@@ -1,0 +1,26 @@
+<h4>Styles com property biding </h4>
+<button class="btn btn-secondary"
+  [style.backgroundColor]="ativo ? 'blue' : 'grey'"
+  [style.color]="ativo ? 'white' : 'black'"
+  [style.fontWeight]="ativo ? 'bold' : 'normal'"
+  [style.fontSize]="ativo ? 'tamanhoDaFonte' : 'px'"
+  (click)="onMudarAtivo()"
+  >
+  Mudar atributo ativo
+</button><br><br>
+
+<input type="text" [(ngModel)]="tamanhoDaFonte">
+
+<h4>Usando a diretiva ngStyle </h4>
+
+<button class="btn btn-primary"
+  [ngStyle]="{
+    'backgroundColor':(ativo ?  'blue' : 'grey'),
+    'color': (ativo ? 'white' : 'black'),
+    'fontWeight': (ativo ? 'bold' : 'normal'),
+    'fontSize': (ativo ? 'tamanhoDaFonte' : 'px')
+  }"
+  (click)="onMudarAtivo()"
+  >
+  Mudar atributo ativo
+</button>

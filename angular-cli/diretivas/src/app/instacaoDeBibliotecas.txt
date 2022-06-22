@@ -1,0 +1,6 @@
+### Instalação de bibliotecas
+- bootstrap
+- lodash
+- @type/lodash
+- materialize-css
+

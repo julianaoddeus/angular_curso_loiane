@@ -1,0 +1,19 @@
+<p fundoAmarelo>Texto com fundo amarelo</p>
+
+<button fundoAmarelo>Botão amarelo</button>
+
+<p highlightMouse>Usando highlightmouse  no texto</p>
+
+<p [highlight]="'red'" [defaultColor]="'grey'" >Apenas highlight</p>
+
+<h5 >*ngElse</h5>
+
+<div *ngIf="mostrarCursos">
+  Lista de cursos aqui
+</div>
+<div *ngElse="mostrarCursos">
+  Não existem cursos para serem listados
+</div>
+
+
+<button (click)="OnMostrarCursos()">Mostrar/ ocultar</button>
