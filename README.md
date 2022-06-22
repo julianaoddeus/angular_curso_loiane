@@ -47,7 +47,9 @@
     - Router RouterModule
     - Configurando rotas simples | rotas ativas css
     - configurando rotas imperativas /  extraindo parâmetros / escutando mudanças nos params
-    - extraindo params de url
+    - extraindo params de url,
+    - rotas filhas
+    
 
 
 

@@ -4,5 +4,6 @@
   *ngFor="let curso of cursos"
   [routerLink]="['/curso',curso.id]"
   >{{curso.nome}}</a>
-
 </div>
+
+<button class="btn waves-effect waves-light" (click)="proximaPagina()">Próxima Página <i class="material-icons right">send</i></button>
