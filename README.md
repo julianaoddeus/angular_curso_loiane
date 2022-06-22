@@ -12,6 +12,9 @@
 ### Sites de suporte
 - http://es6-features.org/#Constants
 -  https://babeljs.io/
+- https://materializecss.com/collections.html
+- https://angular.io/cli
+- https://www.npmjs.com/package/materialize-css
 
 ### Comando usados
 - ng serve 
@@ -48,6 +51,3 @@
 
 
 
-### Extenções utilizadas
-- angular2
-- 
