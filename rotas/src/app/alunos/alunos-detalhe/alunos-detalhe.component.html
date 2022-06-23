@@ -1,1 +1,15 @@
-<p>Detalhes do Aluno</p>
+<div class="card">
+  <div class="card-content">
+    <h5>Detalhes do Aluno</h5>
+  </div>
+  <div class="card-tabs">
+    <ul class="collection with-header">
+      <li class="collection-item">Id: {{aluno.id}}</li>
+      <li class="collection-item">Nome: {{aluno.nome}}</li>
+      <li class="collection-item">E-mail: {{aluno.email}}</li>
+    </ul>
+  </div>
+  <div class="card-content grey lighten-4">
+   <button class="waves-effect waves-light btn" (click)="editarContato()">Editar</button>
+  </div>
+</div>

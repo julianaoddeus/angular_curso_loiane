@@ -9,7 +9,7 @@ import { AlunosService } from './alunos.service';
 })
 export class AlunosComponent implements OnInit {
 
-   alunos : any [] = [];
+  alunos : any [] = [];
 
   constructor(private alunoService: AlunosService) { }
 
