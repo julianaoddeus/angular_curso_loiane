@@ -7,6 +7,7 @@ import { AlunosComponent } from './alunos.component';
 import { AlunoRoutingModule } from './alunos-routing.modules';
 import { AlunosFormComponent } from './alunos-form/alunos-form.component';
 import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.component';
+import { AlunosDeactivateGuard } from '../guards/alunos-deactivate.guard';
 
 
 
@@ -23,6 +24,6 @@ import { AlunosDetalheComponent } from './alunos-detalhe/alunos-detalhe.componen
     AlunoRoutingModule,
     FormsModule
   ],
-  providers: [AlunosService]
+  providers: [AlunosService, AlunosDeactivateGuard]
 })
 export class AlunosModule { }

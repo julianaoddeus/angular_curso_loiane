@@ -50,6 +50,17 @@
     - extraindo params de url,
     - rotas filhas
     - Lazy Loading
+    - Guarda de rotas
+        - auth guard
+        - canActivete
+        - canActiveteChild
+        - canDeactivate
+        - resolver
+        - canLoad
+        - Hash {useHash: true}
+        
+
+
     
 
 

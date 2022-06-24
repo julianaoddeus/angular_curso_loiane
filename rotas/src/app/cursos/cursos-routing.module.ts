@@ -10,9 +10,9 @@ import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-en
 
 const cursosRoutes: Routes = [
 
-  {path: 'cursos', component: CursosComponent},
-  {path: 'curso/:id', component: CursoDetalheComponent},// rota /: nome do parâmetro
-  {path: 'naoEncontrado', component: CursoNaoEncontradoComponent}
+  {path: '', component: CursosComponent},
+  {path: 'naoEncontrado', component: CursoNaoEncontradoComponent}, //fixo hardcoded
+  {path: ':id', component: CursoDetalheComponent},// rota /: nome do parâmetro
 
 ];
 

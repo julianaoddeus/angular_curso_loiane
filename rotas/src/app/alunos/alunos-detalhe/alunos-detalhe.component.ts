@@ -19,20 +19,31 @@ export class AlunosDetalheComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-   this.inscricao = this.route.params.subscribe((params: any)=>
-   {
-    let id  = params['id'];
-    this.aluno = this.alunosService.getAluno(id);
-   });
+    // this.inscricao = this.route.params.subscribe((params: any) => {
+    //   let id = params['id'];
+    //   this.aluno = this.alunosService.getAluno(id);
+    // });
+
+
+    this.inscricao = this.route.data.subscribe(
+      info => {
+        console.log(info);
+        this.aluno = info['aluno'];
+      }
+    )
+    // this.inscricao = this.route.params.subscribe(info =>{
+    //   this.aluno = this.route.snapshot.data['aluno'];
+    // });
+
   }
 
   ngOnDestroy(): void {
-    if(this.inscricao){
+    if (this.inscricao) {
       this.inscricao.unsubscribe();
     }
   }
 
-  editarContato(){
+  editarContato() {
     this.router.navigate(['/alunos', this.aluno.id, 'editar']);
   }
 

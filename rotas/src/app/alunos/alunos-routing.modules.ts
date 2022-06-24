@@ -1,3 +1,5 @@
+import { AlunoDetalheResolver } from './guards/aluno-detalhe.resolver';
+import { AlunosDeactivateGuard } from './../guards/alunos-deactivate.guard';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
@@ -17,11 +19,15 @@ const alunosRoutes: Routes = [
 
   //usando rotas filhas --
   {
-    path: 'alunos', component: AlunosComponent,
+    path: '', component: AlunosComponent,
     children: [
       { path: 'novo', component: AlunosFormComponent }, //hardedCode
-      { path: ':id', component: AlunosDetalheComponent }, //
-      { path: ':id/editar', component: AlunosFormComponent }
+      { path: ':id', component: AlunosDetalheComponent,
+        resolve: { aluno : AlunoDetalheResolver}
+      }, //
+      { path: ':id/editar', component: AlunosFormComponent,
+            canDeactivate: [AlunosDeactivateGuard],
+    }
     ]
   }
 ]
