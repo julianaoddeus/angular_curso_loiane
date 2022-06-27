@@ -1,6 +1,8 @@
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -11,10 +13,12 @@ import { TemplateFormModule } from './template-form/template-form.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     DataFormComponent,
+
 
 
   ],
@@ -23,7 +27,9 @@ import { TemplateFormModule } from './template-form/template-form.module';
     AppRoutingModule,
     TooltipModule,
     FormsModule,
-    TemplateFormModule
+    HttpClientModule,
+    TemplateFormModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

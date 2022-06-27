@@ -63,6 +63,9 @@
             - ngModel
             - FormControl
             - Submit
+            - aplicando controle de erros
+            - web service para CEP
+            - 
 
         -form data driven
 
