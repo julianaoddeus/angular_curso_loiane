@@ -7,7 +7,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 const routes: Routes = [
 
   {path: 'templateForm', component: TemplateFormComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'templateForm'},
+  {path: '', pathMatch: 'full', redirectTo: 'dataForm'},
   {path: 'dataForm', component: DataFormComponent},
 
 ];
