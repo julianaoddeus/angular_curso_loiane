@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
+import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 
 
 @Component({
@@ -13,7 +14,10 @@ export class TemplateFormComponent implements OnInit {
   usuario: any = { nome: null, email: null };
   valor: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private cepService: ConsultaCepService
+          ) { }
 
   ngOnInit(): void {
   }

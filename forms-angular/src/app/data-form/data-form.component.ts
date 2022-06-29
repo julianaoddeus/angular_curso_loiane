@@ -1,10 +1,11 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { DropdownService } from './../shared/services/dropdown.service';
 import { EstadoBr } from '../shared/models/estado-br';
-import { map } from 'rxjs';
+import { DropdownService } from './../shared/services/dropdown.service';
+import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 
 @Component({
   selector: 'app-data-form',
@@ -14,17 +15,33 @@ import { map } from 'rxjs';
 export class DataFormComponent implements OnInit {
 
   formulario!: FormGroup;
-  estados!: EstadoBr[];
+  // estados!: EstadoBr[];
+  estados!: Observable<EstadoBr[]>
+
+  cargos!: any [];
+
+  tecnologias!: any [];
+
+  newsLetterOp!: any[]
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private dropDownService: DropdownService
+    private dropDownService: DropdownService,
+    private cepService: ConsultaCepService
   ) { }
 
   ngOnInit(): void {
 
-    this.dropDownService.getEstadosBr().subscribe((data: any) => { this.estados; console.log(data); });
+    // this.dropDownService.getEstadosBr().subscribe((data: any) => { this.estados; console.log(data); });
+
+    this.estados = this.dropDownService.getEstadosBr();
+
+    this.cargos = this.dropDownService.getCargos();
+    
+    this.tecnologias = this.dropDownService. getTecnologias();
+
+    this.newsLetterOp = this.dropDownService.getNewsLetter();
 
     this.formulario = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3)]],
@@ -39,21 +56,25 @@ export class DataFormComponent implements OnInit {
         cidade: [null, Validators.required],
         estado: [null, Validators.required],
 
-      })
+      }),
+
+      cargo: [null],
+      tecnologias: [null],
+      newsletter: [null]
     })
   }
 
   onSubmit() {
-    if(this.formulario.valid){
+    if (this.formulario.valid) {
 
       this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
-      .subscribe((dados: any) => {
-        console.log(dados)
-        //resetar o formulario
-        //this.resetar()
-      })
+        .subscribe((dados: any) => {
+          console.log(dados)
+          //resetar o formulario
+          //this.resetar()
+        })
 
-    }else {
+    } else {
       console.log('formlario invalido')
       this.verificaValidacoesForm(this.formulario);
     }
@@ -65,7 +86,7 @@ export class DataFormComponent implements OnInit {
       console.log(campo)
       const controle = formGroup.get(campo)
       controle?.markAsTouched()
-      if(controle instanceof FormGroup){
+      if (controle instanceof FormGroup) {
         this.verificaValidacoesForm(controle);
       }
     })
@@ -96,23 +117,10 @@ export class DataFormComponent implements OnInit {
   }
 
   consultaCEP() {
+    const cep = this.formulario.get('endereco.cep')?.value
 
-    let cep = this.formulario.get('endereco.cep')?.value
-    cep = cep.replace(/\D/g, '');
-
-    //Verifica se campo cep possui valor informado.
-    if (cep != "") {
-      //Expressão regular para validar o CEP.
-      var validacep = /^[0-9]{8}$/;
-      //Valida o formato do CEP.
-      if (validacep.test(cep)) {
-
-        this.resetaDadosForm()
-
-        this.http.get(`https://viacep.com.br/ws/${cep}/json`)
-          .subscribe(dados => this.populaDadoForm(dados))
-
-      }
+    if (cep != null && cep !== '') {
+      this.cepService.consultaCEP(cep)?.subscribe(dados => this.populaDadoForm(dados))
     }
   }
 
