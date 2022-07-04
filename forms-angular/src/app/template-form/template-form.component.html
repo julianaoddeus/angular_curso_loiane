@@ -2,7 +2,7 @@
   <div class="form-group mb-2" [ngClass]="aplicaCssErro(nome)">
     <label for="nome" class="form-label">Nome</label>
     <input type="texto" class="form-control" id="nome" name="nome" [(ngModel)]="usuario.nome" required #nome="ngModel">
-    <app-campo-control-erro [mostrarErro]="verificaValidTouched(nome)" msgErro="nome obrigatório">
+    <app-campo-control-erro  [mostrarErro]="verificaValidTouched(nome)" msgErro="nome obrigatório">
     </app-campo-control-erro>
   </div>
 

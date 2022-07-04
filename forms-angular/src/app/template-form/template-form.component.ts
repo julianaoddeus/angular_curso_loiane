@@ -16,7 +16,7 @@ export class TemplateFormComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private cepService: ConsultaCepService
+   
           ) { }
 
   ngOnInit(): void {

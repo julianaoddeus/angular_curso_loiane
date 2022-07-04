@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ConsultaCepService {
+  verificarEmail(value: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -14,7 +17,7 @@ export class ConsultaCepService {
     //Verifica se campo cep possui valor informado.
     if (cep != "") {
       //Expressão regular para validar o CEP.
-      const validacep = /^[0-9]{8}$/;
+      const validacep = /^([\d]{2})\.*([\d]{3})-*([\d]{3})/;
       //Valida o formato do CEP.
       if (validacep.test(cep)) {
 
