@@ -2,7 +2,7 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Curso } from './cursos-lista/icursos';
-import {tap} from 'rxjs'
+import {delay, tap} from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class CursosService {
 
   list() {
     return this.http.get<Curso[]>(this.API).pipe(
+      delay(1000),
       tap(console.log)
     ) //API restfull
 
