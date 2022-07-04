@@ -1,6 +1,9 @@
+import { ShareModule } from './share/share.module';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +21,9 @@ import { UnsubscribeRxjsModule } from './cursos/unsubscribe-rxjs/unsubscribe-rxj
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    UnsubscribeRxjsModule
+    UnsubscribeRxjsModule,
+    ModalModule.forRoot(),
+    ShareModule
 
 
 

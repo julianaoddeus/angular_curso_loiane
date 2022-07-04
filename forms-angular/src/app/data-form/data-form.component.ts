@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { tap, map, distinctUntilChanged, mergeMap, switchMap } from 'rxjs';
+import { tap, map, distinctUntilChanged, mergeMap, switchMap, of } from 'rxjs';
 
 
 
@@ -104,7 +104,7 @@ export class DataFormComponent implements OnInit {
       .pipe(
         tap(estado => console.log('Novo estado',estado)),
         map(estado => this.estados.filter(e => e.sigla === estado)),
-        map(estados => estados && estados.length > 0 ? estados[0].id : ''),
+        map(estados => estados && estados.length > 0 ? estados[0].id : of()),
         switchMap((estadoId:any) => this.dropDownService.getCidades(estadoId)),
         tap(console.log)
       ).subscribe(cidades => this.cidades = cidades)

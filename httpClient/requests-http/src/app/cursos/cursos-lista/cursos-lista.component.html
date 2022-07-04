@@ -5,9 +5,10 @@
     </div>
     <div class="float-end">
       <button type="button" class="btn btn-primary">Novo Curso</button>
+      <button type="button" class="btn btn-success" (click)="onRefresh()">Atualizar</button>
     </div>
   </div>
-  <table class="table" *ngIf="cursos$ | async as cursos; else loading " >
+  <table class="table" *ngIf="cursos$ | async as cursos; else loadingNoError " >
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -34,5 +35,12 @@
     </tbody>
   </table>
   <!-- Spiner -->
-  <ng-template #loading><span>Carregando cursos...</span></ng-template>
+  <ng-template #loadingNoError>
+    <div *ngIf="error$ | async; else loading ">
+    </div>
+    <ng-template #loading>
+      <span>Carregando cursos...</span>
+    </ng-template>
+  </ng-template>
 </div>
+
