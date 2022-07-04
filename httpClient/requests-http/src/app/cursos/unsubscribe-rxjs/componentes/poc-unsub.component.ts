@@ -24,6 +24,7 @@ export class PocUnsubComponent implements OnInit, OnDestroy {
   ngOnInit() {
     //maneira manual de fazer unsubscribe
     //this.sub = this.service.getValor()
+    //
     this.sub.push(this.service.getValor()
       .pipe(tap(v => console.log(this.nome, v)))
       .subscribe(novoValor => this.valor = novoValor));
