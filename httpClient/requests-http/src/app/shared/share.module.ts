@@ -13,4 +13,4 @@ import { AlertModelComponent } from './alert-model/alert-model.component';
     AlertModelComponent
   ]
 })
-export class ShareModule { }
+export class SharedModule { }

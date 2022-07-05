@@ -1,8 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { catchError, Observable, of, Subject } from 'rxjs';
-import { AlertModelComponent } from 'src/app/share/alert-model/alert-model.component';
+import { AlertModalService } from 'src/app/shared/alert-modal.service';
+import { AlertModelComponent } from 'src/app/shared/alert-model/alert-model.component';
+
 import { CursosService } from '../cursos.service';
 import { Curso } from './icursos';
 
@@ -15,6 +18,7 @@ import { Curso } from './icursos';
 })
 export class CursosListaComponent implements OnInit {
 
+
   // cursos!: Curso[]
   cursos$!: Observable<Curso[]>;
   error$ = new Subject<boolean>();
@@ -22,8 +26,9 @@ export class CursosListaComponent implements OnInit {
 
   constructor(
     private cursosService: CursosService,
-    private modalService: BsModalService
-    ) { }
+    private alertService: AlertModalService
+    // private modalService: BsModalService
+  ) { }
 
   ngOnInit() {
 
@@ -31,21 +36,22 @@ export class CursosListaComponent implements OnInit {
   }
 
   onRefresh() {
-  //this.cursosService.list().subscribe(dados => this.cursos = dados);
+    //this.cursosService.list().subscribe(dados => this.cursos = dados);
     this.cursos$ = this.cursosService.list()
-    .pipe( catchError(error => {
-       console.log(error)
-       //this.error$.next(true)
-       this.handleError();
-       return of()
+      .pipe(catchError(error => {
+        console.log(error)
+        //this.error$.next(true)
+        this.handleError();
+        return of()
       })
       )
   }
 
-  handleError(){
-    this.bsModalRef = this.modalService.show(AlertModelComponent);
-    this.bsModalRef.content.type = 'danger';
-    this.bsModalRef.content.message = ' Erro ao carregar cursos. Tente novamente mais tarde.';
+  handleError() {
+    this.alertService.showAlertDanger('Erro ao carregar cursos. Tente novamente mais tarde.')
+    // this.bsModalRef = this.modalService.show(AlertModelComponent);
+    // this.bsModalRef.content.type = 'danger';
+    // this.bsModalRef.content.message = ' Erro ao carregar cursos. Tente novamente mais tarde.';
   }
 
 }

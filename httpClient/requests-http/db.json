@@ -17,16 +17,16 @@
       "id": 4
     },
     {
-      "nome": "Material",
+      "nome": "Bootstrap",
       "id": 5
     },
     {
-      "nome": "Material 3",
+      "nome": "Javascript",
       "id": 6
     },
     {
       "id": 7,
-      "nome": "Material 4"
+      "nome": "Cordova"
     }
   ]
 }

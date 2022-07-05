@@ -4,11 +4,11 @@
       <h4>Cursos</h4>
     </div>
     <div class="float-end">
-      <button type="button" class="btn btn-primary">Novo Curso</button>
+      <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Curso</button>
       <button type="button" class="btn btn-success" (click)="onRefresh()">Atualizar</button>
     </div>
   </div>
-  <table class="table" *ngIf="cursos$ | async as cursos; else loadingNoError " >
+  <table class="table" *ngIf="cursos$ | async as cursos; else loading " >
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -34,13 +34,14 @@
       </tr>
     </tbody>
   </table>
+  <ng-template #loading>
+    <span>Carregando cursos...</span>
+  </ng-template>
   <!-- Spiner -->
-  <ng-template #loadingNoError>
+  <!-- <ng-template #loadingNoError>
     <div *ngIf="error$ | async; else loading ">
     </div>
-    <ng-template #loading>
-      <span>Carregando cursos...</span>
-    </ng-template>
-  </ng-template>
+
+  </ng-template> -->
 </div>
 
