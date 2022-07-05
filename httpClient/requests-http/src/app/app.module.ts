@@ -5,9 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/share.module';
+
 import { AppRoutingModule } from './app-routing.module';
-import { UnsubscribeRxjsModule } from './cursos/unsubscribe-rxjs/unsubscribe-rxjs.module';
+import { SharedModule } from './shared/shared.module';
+
 
 
 
@@ -21,7 +22,6 @@ import { UnsubscribeRxjsModule } from './cursos/unsubscribe-rxjs/unsubscribe-rxj
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    UnsubscribeRxjsModule,
     ModalModule.forRoot(),
     SharedModule
 

@@ -22,11 +22,11 @@
         <td scope="row">{{curso.nome}}</td>
         <td>
           <span class="float-end">
-            <button class="btn btn-outline-warning btn-sm">
+            <button class="btn btn-outline-warning btn-sm" (click)="onEdit(curso.id)">
               Atualizar
             </button>
 
-            <button class="btn btn-outline-danger btn-sm">
+            <button class="btn btn-outline-danger btn-sm" (click)="onDelete(curso)">
               Remover
             </button>
           </span>
@@ -44,4 +44,10 @@
 
   </ng-template> -->
 </div>
-
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja remover este curso?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()">Sim</button>
+    <button type="button" class="btn btn-primary" (click)=" decline()">Não</button>
+  </div>
+</ng-template>

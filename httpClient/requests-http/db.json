@@ -1,14 +1,6 @@
 {
   "cursos": [
     {
-      "id": 1,
-      "nome": "Angular"
-    },
-    {
-      "nome": "Java",
-      "id": 2
-    },
-    {
       "nome": "Angular Material",
       "id": 3
     },
@@ -27,6 +19,38 @@
     {
       "id": 7,
       "nome": "Cordova"
+    },
+    {
+      "nome": "Android",
+      "id": 8
+    },
+    {
+      "nome": "Vue",
+      "id": 9
+    },
+    {
+      "nome": "Asp.Net",
+      "id": 10
+    },
+    {
+      "nome": "Node Js",
+      "id": 11
+    },
+    {
+      "nome": "Python",
+      "id": 12
+    },
+    {
+      "nome": "React",
+      "id": 13
+    },
+    {
+      "nome": "Angular JS",
+      "id": 14
+    },
+    {
+      "nome": "Photoshop",
+      "id": 15
     }
   ]
 }
